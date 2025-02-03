@@ -9,6 +9,7 @@ public class Store
 
     public enum Mode { None, Buying, Selling }
     
+    //
     public Store()
     {
         if (Items is not null) return;
