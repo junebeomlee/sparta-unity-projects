@@ -9,7 +9,6 @@ public class Store
 
     public enum Mode { None, Buying, Selling }
     
-    //
     public Store()
     {
         if (Items is not null) return;
@@ -17,23 +16,21 @@ public class Store
         Items = JsonSerializer.Deserialize<List<Item>>(itemListFile);
     }
 
-    public void Buy(Item item, Player player)
+    public bool IsEnoughGold(Item item, int gold)
+    {
+        return gold - item.Price >= 0; 
+
+    }
+    public void SendItemTo(Item item, Player player)
     {
         int leftMoney = player.Gold - item.Price;
-        if (leftMoney < 0)
-        {
-            // 시스템적 에러를 여기서 쓰는 것이 맞는 지?
-            throw new Exception("not enough gold");
-        }
-        else
-        {
-            player.Inventory.Add(item);
-            player.Gold = leftMoney;
-        }
+        player.Inventory.Add(item);
+        player.Gold = leftMoney;
     }
 
-    public void Sell(Item item, Player player)
+    public void GetItemFrom(Item item, Player player)
     {
-        
+        player.Inventory.Remove(item);
+        player.Gold += (int)Math.Truncate(item.Price * 0.6f);
     }
 }

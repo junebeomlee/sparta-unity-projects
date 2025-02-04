@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sparta_dungeon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a2daf84989f4fb3143e9763520330df58ac45f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99710fa8786dbdca3df558be343d19948620fecb")]
 [assembly: System.Reflection.AssemblyProductAttribute("sparta_dungeon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sparta_dungeon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
