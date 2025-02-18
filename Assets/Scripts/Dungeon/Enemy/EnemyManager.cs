@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+// 에너미 리젠
 public class EnemyManager : MonoBehaviour
 {
     // 웨이브 생성을 위한 코루딘
@@ -55,6 +56,7 @@ public class EnemyManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void SpawnRandomEnemy()
     {
+        // guard if
         if (enemyPrefabs.Count == 0 || spawnAreas.Count == 0)
         {
             Debug.LogWarning("Enemy Prefabs 또는 Spawn Areas가 설정되지 않았습니다.");
@@ -94,6 +96,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    // 이 부분 때문에 MonoBehaviour 상속 발생
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

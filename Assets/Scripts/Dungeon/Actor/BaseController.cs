@@ -26,6 +26,8 @@ public class BaseController : MonoBehaviour
     // 스탯 처리
     protected StatHandler StatHandler;
 
+    
+    // 이건 왜 두개인가?
     [SerializeField] public WeaponHandler WeaponPrefab;
     protected WeaponHandler WeaponHandler;
     
@@ -42,7 +44,7 @@ public class BaseController : MonoBehaviour
         // 프리팹 있는 경우
         if (WeaponPrefab)
         {
-            // 피봇은 왜 들어가나?
+            // 피봇은 왜 들어가나? = 이와 같이 2번째 파마리터가 있는 경우 해당 게임 오브젝트의 child 로 들어가기 때문
             WeaponHandler = Instantiate(WeaponPrefab, weaponPivot); 
         }
         else
@@ -89,7 +91,7 @@ public class BaseController : MonoBehaviour
             direction += knockback;
         }
         
-        _rigidbody.velocity = direction;
+        _rigidbody.linearVelocity = direction;
         AnimationHandler.Move(direction);
     }
 

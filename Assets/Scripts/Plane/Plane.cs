@@ -63,7 +63,7 @@ public class Plane : MonoBehaviour
     {
         if(isDead) { return; }
         
-        Vector3 velocity = _rigidbody.velocity;
+        Vector3 velocity = _rigidbody.linearVelocity;
         velocity.x = flapForce;
 
         if (_isFlap)
@@ -72,9 +72,9 @@ public class Plane : MonoBehaviour
             _isFlap = false;
         }
         
-        _rigidbody.velocity = velocity;
+        _rigidbody.linearVelocity = velocity;
         
-        float angle = Mathf.Clamp(_rigidbody.velocity.y * 10f, -90f, 90f);
+        float angle = Mathf.Clamp(_rigidbody.linearVelocity.y * 10f, -90f, 90f);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
