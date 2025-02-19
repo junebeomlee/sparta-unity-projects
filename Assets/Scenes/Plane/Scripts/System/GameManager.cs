@@ -3,8 +3,13 @@ using UnityEngine.SceneManagement;
 
 namespace Scenes.Plane
 {
+
     public class GameManager : MonoBehaviour
     {
+        // 게임을 다시 호출할 때 (원인은 비동기 때문인지?) 이전 진입한 씬이 currentActiceScene으로 인식됨
+        private readonly string _currentGameScenePath = $"Scenes/{MiniGame.Plane}/_scene";
+        private readonly string _initScenePath = $"Scenes/{MiniGame.World}/_scene";
+
         static GameManager gameManager;
 
         public static GameManager Instance
@@ -38,7 +43,12 @@ namespace Scenes.Plane
     
         public void RestartGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(_currentGameScenePath);
+        }
+
+        public void ExitGame()
+        {
+            SceneManager.LoadScene(_initScenePath);
         }
 
         public void AddScore(int score)
