@@ -9,19 +9,23 @@ namespace Scenes.Plane
     {
         public TextMeshProUGUI ScoreText;
         
-        public TextMeshProUGUI RestartText;
+        public Button RestartButton;
         public Button ExitButton; 
 
         public void Start()
         {
-            if (!RestartText || !ScoreText) { Debug.LogError("text is null"); return; }
-            RestartText.gameObject.SetActive(false);
+            if (!RestartButton || !ScoreText) { Debug.LogError("text is null"); return; }
+            
+            RestartButton.onClick.AddListener(GameManager.Instance.RestartGame);
+            ExitButton.onClick.AddListener(GameManager.Instance.ExitGame);
+            
+            RestartButton.gameObject.SetActive(false);
             ExitButton.gameObject.SetActive(false);
         }
 
         public void SetRestartPage()
         {
-            RestartText.gameObject.SetActive(true);
+            RestartButton.gameObject.SetActive(true);
             ExitButton.gameObject.SetActive(true);
         }
 
