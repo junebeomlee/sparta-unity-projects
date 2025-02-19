@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Scenes.Plane
+namespace Scene.Plane
 {
     public class UIManager : MonoBehaviour
     {

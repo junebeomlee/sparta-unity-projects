@@ -1,4 +1,4 @@
-using Scenes.Plane;
+using Scene.Plane;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -33,7 +33,7 @@ public class Plane : MonoBehaviour
         if (!_rigidbody && !_animator) { Debug.LogWarning("No components found!"); }
     }
 
-    // Update is called once per frame
+    // 가장 처음에 인식이 시작 버튼을 누르면 시작되도록 처리 필요.
     void Update()
     {
         if (isDead)
@@ -74,6 +74,7 @@ public class Plane : MonoBehaviour
         
         _rigidbody.linearVelocity = velocity;
         
+        // 물리적 방식으로 회전을 구현
         float angle = Mathf.Clamp(_rigidbody.linearVelocity.y * 10f, -90f, 90f);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }

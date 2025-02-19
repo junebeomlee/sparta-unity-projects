@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum UIState
 {
@@ -11,6 +12,9 @@ namespace Scene.Stack
 {
     public class UIManager : MonoBehaviour
     {
+        // 각 게임의 매니저마다 중복으로 발생
+        private readonly string _initScenePath = $"Scenes/{MiniGame.World}/_scene";
+        
         static UIManager instance;
         public static UIManager Instance => instance;
     
@@ -55,11 +59,14 @@ namespace Scene.Stack
     
         public void OnClickExit()
         {
-            #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                    Application.Quit(); // 어플리케이션 종료
-            #endif
+            // 시작 씬으로 이동
+            SceneManager.LoadScene(_initScenePath);
+            
+            // #if UNITY_EDITOR
+            //         UnityEditor.EditorApplication.isPlaying = false;
+            // #else
+            //         Application.Quit(); // 어플리케이션 종료
+            // #endif
         }
         
         public void UpdateScore()

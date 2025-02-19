@@ -1,5 +1,5 @@
 using System;
-using Scenes.Plane;
+using Scene.Plane;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;

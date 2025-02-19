@@ -1,7 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scenes.Plane
+namespace Scene.Plane
 {
 
     public class GameManager : MonoBehaviour
@@ -10,12 +11,8 @@ namespace Scenes.Plane
         private readonly string _currentGameScenePath = $"Scenes/{MiniGame.Plane}/_scene";
         private readonly string _initScenePath = $"Scenes/{MiniGame.World}/_scene";
 
-        static GameManager gameManager;
-
-        public static GameManager Instance
-        {
-            get { return gameManager; }
-        }
+        private static GameManager _gameManager;
+        public static GameManager Instance => _gameManager; 
     
         private int currentScore = 0;
         UIManager uiManager;
@@ -26,7 +23,7 @@ namespace Scenes.Plane
         }
         private void Awake()
         {
-            gameManager = this;
+            _gameManager = this;
             uiManager = FindObjectOfType<UIManager>();
         }
     
