@@ -8,5 +8,20 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/World/_scene.unity
+    guid: 012857c82cab04b709821ebdc10cdc35
+  - enabled: 1
+    path: Assets/Scenes/Stack/_scene.unity
+    guid: 3e2cbfa8ed03f4c83baf043951edba84
+  - enabled: 1
+    path: Assets/Scenes/Plane/_scene.unity
+    guid: 6c5030ee7fc494930a11ed1924ef472c
+  - enabled: 1
+    path: Assets/Scenes/Dungeon/_scene.unity
+    guid: 928f0e35943ab4b9cae9963eaf33feea
+  - enabled: 1
+    path: Assets/Scenes/Fishing/_scene.unity
+    guid: 2be99d7852d4c4de1bd2cf0a226e20bf
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

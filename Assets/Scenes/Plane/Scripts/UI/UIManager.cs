@@ -1,27 +1,33 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Scenes.Plane
 {
     public class UIManager : MonoBehaviour
     {
-        public TextMeshProUGUI scoreText;
-        public TextMeshProUGUI restartText;
+        public TextMeshProUGUI ScoreText;
+        
+        public TextMeshProUGUI RestartText;
+        public Button ExitButton; 
 
         public void Start()
         {
-            if (!restartText || !scoreText) { Debug.LogError("text is null"); return; }
-            restartText.gameObject.SetActive(false);
+            if (!RestartText || !ScoreText) { Debug.LogError("text is null"); return; }
+            RestartText.gameObject.SetActive(false);
+            ExitButton.gameObject.SetActive(false);
         }
 
         public void SetRestartPage()
         {
-            restartText.gameObject.SetActive(true);
+            RestartText.gameObject.SetActive(true);
+            ExitButton.gameObject.SetActive(true);
         }
 
         public void UpdateScore(int score)
         {
-            scoreText.text = score.ToString();
+            ScoreText.text = score.ToString();
         }
 
     }
