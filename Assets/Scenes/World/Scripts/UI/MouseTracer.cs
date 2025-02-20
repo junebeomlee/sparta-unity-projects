@@ -21,8 +21,8 @@ public class MouseTracer : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
-    private void Update()
+    // 카메라부터 캐릭터 움직임 까지 FixedUpdate에서 발생해서, 이곳에 두지 않으면 떨림 현상이 발생함.
+    private void FixedUpdate()
     {
         Vector3 mousePosition = Input.mousePosition;
         // 마우스의 위치는 카메라와의 거리 계산

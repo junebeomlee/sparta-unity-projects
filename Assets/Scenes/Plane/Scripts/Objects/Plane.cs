@@ -40,11 +40,12 @@ public class Plane : MonoBehaviour
         {
             if (deathCoolDown <= 0)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    // 게임 재시작
-                    GameManager.Instance.RestartGame();
-                }
+                // 재시작 로직은 UI에서 관리
+                // if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                // {
+                //     // 게임 재시작
+                //     GameManager.Instance.RestartGame();
+                // }
             }
             else
             {

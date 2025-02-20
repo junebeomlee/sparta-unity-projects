@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
 {
+    // 싱글톤
     private static ProjectileManager instance;
-    public static ProjectileManager Instance{get{return instance;}}
+    public static ProjectileManager Instance => instance;
 
+    // 발사체 목록
     [SerializeField] private GameObject[] projectilePrefabs;
     
+    // 충돌 액션 FX
     [SerializeField] private ParticleSystem impactParticleSystem;
 
     private void Awake()
@@ -17,8 +20,9 @@ public class ProjectileManager : MonoBehaviour
     public void ShootBullet(RangeWeaponHandler rangeWeaponHandler, Vector2 startPostiion, Vector2 direction )
     {
         GameObject origin = projectilePrefabs[rangeWeaponHandler.BulletIndex];
-        GameObject obj = Instantiate(origin,startPostiion,Quaternion.identity);
+        GameObject obj = Instantiate(origin,startPostiion, Quaternion.identity);
         
+        //
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, rangeWeaponHandler, this);
     }

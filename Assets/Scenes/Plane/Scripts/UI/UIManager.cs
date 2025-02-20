@@ -23,7 +23,7 @@ namespace Scene.Plane
             ExitButton.gameObject.SetActive(false);
         }
 
-        public void SetRestartPage()
+        public void ShowResultUI()
         {
             RestartButton.gameObject.SetActive(true);
             ExitButton.gameObject.SetActive(true);

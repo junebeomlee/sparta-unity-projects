@@ -43,6 +43,7 @@ namespace Scene.Stack
         }
     
     
+        // 상태 패턴
         public void ChangeState(UIState state)
         {
             currentState = state;
@@ -60,7 +61,7 @@ namespace Scene.Stack
         public void OnClickExit()
         {
             // 시작 씬으로 이동
-            SceneManager.LoadScene(_initScenePath);
+            World.GameManager.Instance.ExitGame();
             
             // #if UNITY_EDITOR
             //         UnityEditor.EditorApplication.isPlaying = false;
