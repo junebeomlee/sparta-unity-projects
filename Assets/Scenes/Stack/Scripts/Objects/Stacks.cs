@@ -1,6 +1,7 @@
 using Scene.Stack;
 using Scene.World;
 using UnityEngine;
+using UIManager = Scene.Stack.UIManager;
 
 public class TheStack : MonoBehaviour
 {
