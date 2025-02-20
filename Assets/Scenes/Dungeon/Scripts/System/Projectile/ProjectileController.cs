@@ -40,7 +40,7 @@ public class ProjectileController : MonoBehaviour
             DestroyProjectile(transform.position, false);
         }
 
-        _rigidbody.linearVelocity = direction * rangeWeaponHandler.Speed;
+        _rigidbody.velocity = direction * rangeWeaponHandler.Speed;
     }
 
     // 충돌 시 삭제

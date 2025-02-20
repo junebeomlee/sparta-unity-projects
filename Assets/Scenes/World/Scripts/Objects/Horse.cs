@@ -1,6 +1,5 @@
 using System;
 using Scene.World;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Horse : MonoBehaviour

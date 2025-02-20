@@ -91,7 +91,7 @@ public class BaseController : MonoBehaviour
             direction += knockback;
         }
         
-        _rigidbody.linearVelocity = direction;
+        _rigidbody.velocity = direction;
         AnimationHandler.Move(direction);
     }
 
