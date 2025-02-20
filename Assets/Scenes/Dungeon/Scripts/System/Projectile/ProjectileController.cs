@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 총알에게 붙는 스크립트
+// 발사체
 public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private LayerMask levelCollisionLayer;
@@ -12,6 +12,7 @@ public class ProjectileController : MonoBehaviour
     private bool isReady;
     private Transform pivot;
     
+    // 컴포넌트 묶어서 처리
     private Rigidbody2D _rigidbody;
     private SpriteRenderer spriteRenderer;
     private ProjectileManager projectileManager;
@@ -70,7 +71,7 @@ public class ProjectileController : MonoBehaviour
 
         transform.right = this.direction;
 
-        // 총알 방향에 따른 피봇의 방향
+        // 발사체에 따른 피봇의 방향
         if (this.direction.x < 0)
         {
             pivot.localRotation = Quaternion.Euler(180, 0, 0);

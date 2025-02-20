@@ -1,4 +1,5 @@
 using Scene.Stack;
+using Scene.World;
 using UnityEngine;
 
 public class TheStack : MonoBehaviour
@@ -300,10 +301,13 @@ public class TheStack : MonoBehaviour
     {
         if(bestScore < stackCount)
         {
-            Debug.Log("최고 점수 갱신");
             bestScore = stackCount;
             bestCombo = maxCombo;
-
+            
+            // 최고 기록 저장
+            GameScores gameScores = GameManager.Instance.GameScores;
+            gameScores.stackMaxScore = bestScore;
+          
             PlayerPrefs.SetInt(BestScoreKey, bestScore);
             PlayerPrefs.SetInt(BestComboKey, bestCombo);
         }

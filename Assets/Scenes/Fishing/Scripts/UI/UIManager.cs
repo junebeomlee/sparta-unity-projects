@@ -15,7 +15,6 @@ namespace Scene.Fishing
             if(!StartButton && !ExitButton) { Debug.LogError("cannot found start or exit button"); return; }
             
             ExitButton.onClick.AddListener(GameManager.Instance.ExitGame);
-            
         }
 
         // Update is called once per frame

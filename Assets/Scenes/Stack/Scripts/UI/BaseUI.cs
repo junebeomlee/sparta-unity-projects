@@ -1,6 +1,7 @@
 using Scene.Stack;
 using UnityEngine;
 
+// 상태 패턴
 public abstract class BaseUI : MonoBehaviour
 {
     protected UIManager uiManager;

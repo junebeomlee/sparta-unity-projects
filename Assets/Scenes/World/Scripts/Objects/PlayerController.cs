@@ -1,18 +1,25 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // 네임 스페이스로 동일한 이름에 대한 제한을 해결할 수 있지만, 스코프가 한번 더 발생
-namespace Meta
+namespace Scene.World
 {
 
     public class PlayerController : MonoBehaviour
     {
-        public float moveSpeed = 5f;  // 이동 속도
-
+        public float moveOriginSpeed = 5f;  // 이동 속도
         // private float currentY;
         // private bool isJumping = false;
+        // public bool canMove = true;
+
+        private bool _isRide = false;
+        private float _additionSpeed = 0f;
 
         private SpriteRenderer _spriteRenderer;  // 스프라이트 렌더러
         private Rigidbody2D _rigidbody2D;  // 2D Rigidbody
+        
+        // q: 에디터 컨벤션에서 소문자를 권장
+        public GameObject seat;
         
         private Vector2 moveInput;
         
@@ -56,16 +63,36 @@ namespace Meta
             // Space 클래스
             // Vector3는 파라미터가 4개이며 default 값에 따라 생략될 수 있음.
             // 벡터에 float 값을 직접 곱할 수 없음
-            // transform.Translate(new Vector3(horizontal, vertical) * (Time.deltaTime * moveSpeed));
+            // transform.Translate(new Vector3(horizontal, vertical) * (Time.deltaTime * moveOriginSpeed));
             
-            // 물리적으로 이동 구현
         }
 
+        // 탈 때 위치 계산이 이상해짐
+        public void SetRide(GameObject vehicle)
+        {
+            vehicle.transform.parent = seat.transform;
+            // 위치 초기화
+            vehicle.transform.localPosition = Vector3.zero;
+            
+            _isRide = true;
+            _additionSpeed = 5;
+        }
+
+        // 물리적으로 이동 구현
         private void FixedUpdate()
         {
             // MovePosition을 사용해 부드럽게 이동
-            _rigidbody2D.MovePosition(_rigidbody2D.position + moveInput * (moveSpeed * Time.fixedDeltaTime));
+            _rigidbody2D.MovePosition(_rigidbody2D.position + moveInput * ((moveOriginSpeed + _additionSpeed) * Time.fixedDeltaTime));
         }
+        
+        // private void OnCollisionEnter2D(Collision2D collision)
+        // {
+        //     int indexOfLayer = LayerMask.NameToLayer("Water");
+        //     if (collision.gameObject.layer == indexOfLayer)
+        //     {
+        //         
+        //     }
+        // }
     }
 
 }

@@ -18,15 +18,10 @@ namespace Scene.Fishing
 
         private void Awake()
         {
-            if (!_gameManager) { _gameManager = this; DontDestroyOnLoad(gameObject); }
+            if (!_gameManager) { _gameManager = this;}
             else { Destroy(gameObject); }
         }
-
-        public void StartGame()
-        {
-            
-        }
-
+        
         // 모든 매니저에서 발생하므로 전역 게임 매니저에게 요청 (동작 안됨, 원인 찾아보기)
         public void ExitGame()
         {

@@ -14,7 +14,7 @@ namespace Scene.Plane
         private static GameManager _gameManager;
         public static GameManager Instance => _gameManager; 
     
-        private int currentScore = 0;
+        private int _currentScore = 0;
         UIManager uiManager;
 
         public UIManager UIManager
@@ -25,6 +25,7 @@ namespace Scene.Plane
         {
             _gameManager = this;
             uiManager = FindObjectOfType<UIManager>();
+            Cursor.visible = true;
         }
     
         private void Start()
@@ -34,8 +35,20 @@ namespace Scene.Plane
     
         public void GameOver()
         {
-            Debug.Log("Game Over");
-            uiManager.SetRestartPage();
+            uiManager.ShowResultUI();
+
+            Debug.Log(World.GameManager.Instance);
+            Debug.Log(World.GameManager.Instance.GameScores);
+            
+            // 최고 기록 저장
+            GameScores gameScores = World.GameManager.Instance.GameScores;
+            Debug.Log(gameScores);
+            
+            if (gameScores.planeMaxScore < _currentScore)
+            {
+                gameScores.planeMaxScore = _currentScore;
+                Debug.Log(World.GameManager.Instance.GameScores.planeMaxScore);
+            }
         }
     
         public void RestartGame()
@@ -50,9 +63,8 @@ namespace Scene.Plane
 
         public void AddScore(int score)
         {
-            currentScore += score;
-            uiManager.UpdateScore(currentScore);
-            Debug.Log("Score: " + currentScore);
+            _currentScore += score;
+            uiManager.UpdateScore(_currentScore);
         }
     
     }
