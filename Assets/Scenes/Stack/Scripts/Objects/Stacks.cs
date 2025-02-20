@@ -1,6 +1,7 @@
 using Scene.Stack;
 using Scene.World;
 using UnityEngine;
+using UIManager = Scene.Stack.UIManager;
 
 public class TheStack : MonoBehaviour
 {
@@ -22,13 +23,13 @@ public class TheStack : MonoBehaviour
     float secondaryPosition = 0f;
 
     int stackCount = -1;
-    public int Score { get{return stackCount;}}
+    public int Score => stackCount;
 
     int comboCount = 0;
-    public int Combo{get{return comboCount;}}
+    public int Combo => comboCount;
 
     private int maxCombo = 0;
-    public int MaxCombo { get => maxCombo; }
+    public int MaxCombo => maxCombo;
     
     public Color prevColor;
     public Color nextColor;

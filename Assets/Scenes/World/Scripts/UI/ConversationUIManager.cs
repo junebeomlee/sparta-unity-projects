@@ -42,7 +42,6 @@ public class ConversationUIManager : MonoBehaviour
     // [Obsolete("Obsolete")]
     public void UpdateConversationContent(string[] description, string title = null)
     {
-        _isConversationStarted = true;
         if (!gameObject.active) { gameObject.SetActive(true); }
         // if (title != null) { Title.text = title; }
         // Description.text = description;
@@ -50,8 +49,11 @@ public class ConversationUIManager : MonoBehaviour
         // 타이핑 효과를 위해, 코루틴 형태로 변경
         // StopCoroutine(TypingSentence(description));
         // 모든 코루틴 중지 -> 정상 동작, stopCoroutine이 잘되지 않은 점 확인해보기.
-        StopAllCoroutines();
 
+        if (_isConversationStarted) return;
+        
+        _isConversationStarted = true;
+        StopAllCoroutines();
         StartCoroutine(TypingSentence(description));
     }
     
@@ -70,9 +72,13 @@ public class ConversationUIManager : MonoBehaviour
                 Description.text += letter;  // 한 글자씩 추가
                 yield return new WaitForSeconds(0.1f);  // 0.1초 간격으로 타이핑 효과
             }
+            yield return new WaitForSeconds(0.5f);  // 한 문장의 끝
         }
+        // 대화 완료 후 해제.
         // 동작은 하나, 대화를 기다려야 함.
-        _isProceedToNext = true;
+        _isConversationStarted = false;
+        gameObject.SetActive(false);
+        // _isProceedToNext = true;
     }
 
     // 어디든 클릭 자체를 인식한다.

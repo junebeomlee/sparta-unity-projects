@@ -20,6 +20,7 @@ namespace Scene.World
         
         // q: 에디터 컨벤션에서 소문자를 권장
         public GameObject seat;
+        public GameObject helmetPivot;
         
         private Vector2 moveInput;
         
@@ -39,7 +40,9 @@ namespace Scene.World
             
             // [방향에 따라 뒤집기]
             // 멈췄을 때 방향도 고려 필요.(마지막 방향을 기억해야 함)
-            _spriteRenderer.flipX = moveInput.x >= 0;
+            // 방향을 뒤집는게 아니라 해당 오브젝트의 Y 회전을 가진다.
+            transform.rotation = Quaternion.Euler(0, Mathf.Sign(moveInput.x) < 0 ? 0 : 180, 0);
+            // _spriteRenderer.flipX = moveInput.x >= 0;
             
             // 기호로 확인(부드러운 이동)
             // spriteRenderer.flipX = Mathf.Sign(horizontal) < 0;
@@ -67,16 +70,7 @@ namespace Scene.World
             
         }
 
-        // 탈 때 위치 계산이 이상해짐
-        public void SetRide(GameObject vehicle)
-        {
-            vehicle.transform.parent = seat.transform;
-            // 위치 초기화
-            vehicle.transform.localPosition = Vector3.zero;
-            
-            _isRide = true;
-            _additionSpeed = 5;
-        }
+       
 
         // 물리적으로 이동 구현
         private void FixedUpdate()
@@ -93,6 +87,44 @@ namespace Scene.World
         //         
         //     }
         // }
+        
+        // 피봇 위치만 다름
+        public void SetEquip(GameObject equipment)
+        {
+            // 회전이 발생한 상태에서 추가해버리면 위치가 이상해지는 현상 발생, 둘의 방향을 통일 시킴
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            equipment.transform.rotation = Quaternion.Euler(Vector3.zero);
+            
+            equipment.transform.parent = helmetPivot.transform;
+            // 위치 초기화
+            equipment.transform.localPosition = Vector3.zero;
+            
+        }
+        
+        // 탈 때 위치 계산이 이상해짐
+        public void SetRide(GameObject vehicle)
+        {
+            // 회전이 발생한 상태에서 추가해버리면 위치가 이상해지는 현상 발생, 둘의 방향을 통일 시킴
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            vehicle.transform.rotation = Quaternion.Euler(Vector3.zero);
+            
+            vehicle.transform.parent = seat.transform;
+            // 위치 초기화
+            vehicle.transform.localPosition = Vector3.zero;
+            
+            _isRide = true;
+            _additionSpeed = 5;
+        }
+        
+        public void GetOffVehicle(GameObject vehicle)
+        {
+            // 완전히 외부로 빠지면, 정리해둔 구조에서는 어긋나게 됨
+            vehicle.transform.parent = null;
+            _isRide = false;
+            _additionSpeed = 0;
+
+            // throw new System.NotImplementedException();
+        }
     }
 
 }
