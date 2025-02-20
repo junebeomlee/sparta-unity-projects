@@ -51,7 +51,6 @@ public class TheStack : MonoBehaviour
     {
         if(originBlock == null)
         {
-            Debug.Log("OriginBlock is NULL");
             return;
         }
         
@@ -79,7 +78,6 @@ public class TheStack : MonoBehaviour
             else
             {
                 // 게임 오버
-                Debug.Log("GameOver");
                 UpdateScore();
                 isGameOver = true;
                 GameOverEffect();
@@ -106,7 +104,6 @@ public class TheStack : MonoBehaviour
 
         if(newBlock == null)
         {
-            Debug.Log("NewBlock Instantiate Failed!");
             return false;
         }
 
@@ -148,7 +145,6 @@ public class TheStack : MonoBehaviour
 
         if(rn == null)
         {
-            Debug.Log("Renderer is NULL!");
             return;
         }
 
@@ -289,7 +285,6 @@ public class TheStack : MonoBehaviour
 			      
         if((comboCount % 5) == 0)
         {
-            Debug.Log("5Combo Success!");
             stackBounds += new Vector3(0.5f, 0.5f);
             stackBounds.x =
                 (stackBounds.x > BoundSize) ? BoundSize : stackBounds.x;

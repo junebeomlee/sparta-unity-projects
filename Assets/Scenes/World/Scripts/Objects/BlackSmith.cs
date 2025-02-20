@@ -25,19 +25,4 @@ public class BlackSmith : MonoBehaviour
             );
 
     }
-
-    public void OnClick()
-    {
-        Debug.Log("Click BlackSmith");
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 태그가 문자열로 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("플레이어랑 부딪힘");
-        }
-    }
 }

@@ -19,8 +19,6 @@ public class ConversationMiniGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _isTriggerEnter)
         {
             string scenePath = $"Scenes/{miniGameName.ToString()}/_scene";
-            Debug.Log($"현재 씬: {SceneManager.GetActiveScene().name}, 이동할 씬: {miniGameName}");
-            
             SceneManager.LoadScene(scenePath);
         }
     }
@@ -30,7 +28,6 @@ public class ConversationMiniGame : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _isTriggerEnter = true;
-            Debug.Log("플레이어가 트리거에 진입");
         }
     }
    
@@ -39,7 +36,6 @@ public class ConversationMiniGame : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _isTriggerEnter = false;
-            Debug.Log("플레이어가 트리거에서 나감");
         }
     }
 }

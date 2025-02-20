@@ -18,15 +18,12 @@ public class Helmet : MonoBehaviour
         // 타고 나선 trigger out으로 처리되어 ride 여부로 확인
         if (_isPlayerEnter && Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log("투구 착용");
             if (!_target) return;
 
             Scene.World.PlayerController playerController = _target.GetComponent<Scene.World.PlayerController>();
-            Debug.Log("플레이어 찾기");
 
             if (!_isPlayerEquip && playerController)
             {
-                Debug.Log("착용");
                 playerController.SetEquip(gameObject);
                 _isPlayerEquip = true;
             }

@@ -59,7 +59,6 @@ public class EnemyManager : MonoBehaviour
         // guard if
         if (enemyPrefabs.Count == 0 || spawnAreas.Count == 0)
         {
-            Debug.LogWarning("Enemy Prefabs 또는 Spawn Areas가 설정되지 않았습니다.");
             return;
         }
 

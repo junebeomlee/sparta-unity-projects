@@ -9,18 +9,12 @@ public class Horse : MonoBehaviour
     
     private GameObject _target;
     
-    void Start()
-    {
-        Debug.Log("Horse");   
-    }
-
     // Update is called once per frame
     void Update()
     {
         // 타고 나선 trigger out으로 처리되어 ride 여부로 확인
         if ((_isPlayerRide || _isPlayerEnter) && Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log("Horse");
             if (!_target) return;
 
             Scene.World.PlayerController playerController = _target.GetComponent<Scene.World.PlayerController>();
@@ -37,7 +31,6 @@ public class Horse : MonoBehaviour
             }
             else
             {
-                Debug.Log("내리기");
                 playerController.GetOffVehicle(gameObject);
                 _isPlayerRide = false;
             }
@@ -50,7 +43,6 @@ public class Horse : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Horse");
             _isPlayerEnter = true;
             _target = collision.gameObject;
         }
