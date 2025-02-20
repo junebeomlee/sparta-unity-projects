@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Predator Dead_0: 1965513705581699974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
