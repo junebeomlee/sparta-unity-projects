@@ -29,6 +29,9 @@ namespace Scene.Stack
         TheStack theStack = null;
         private void Awake()
         {
+            // 게임 처음 접근 시 마우스 안보이는 현상
+            Cursor.visible = true;
+            
             instance = this;
             theStack = FindObjectOfType<TheStack>();
             

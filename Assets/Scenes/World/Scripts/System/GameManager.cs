@@ -25,16 +25,10 @@ namespace Scene.World
                 _instance = this; 
                 DontDestroyOnLoad(_instance);
                 // 맨 처음에 한번 불러오기
-                Debug.Log("가장 먼저 생성되");
                 _instance.GameScores = LoadScores();
                 if (_instance.GameScores == null)
                 {
-                    Debug.LogError("GameScores 로딩 실패: 기본값을 설정합니다.");
                     GameScores = new GameScores();  // 기본값 설정
-                }
-                else
-                {
-                    Debug.Log("로딩 성공");
                 }
             }
             // else { Destroy(gameObject); }
@@ -59,7 +53,7 @@ namespace Scene.World
         // 게임 종료시 한번에 저장
         private void OnApplicationQuit()
         {
-            Debug.Log("종료 될 때 저장");
+            
             // save games sore
             string json = JsonUtility.ToJson(GameScores);
             PlayerPrefs.SetString(_maxScoresKey, json);

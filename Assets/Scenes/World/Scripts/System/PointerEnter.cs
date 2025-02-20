@@ -16,7 +16,6 @@ public class PointerEnter : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("색 변경");
         _spriteRenderer.color = Color.red;
     }
 

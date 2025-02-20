@@ -22,8 +22,8 @@ public class ScoreManager : MonoBehaviour
     public void ShowScoreView(bool state)
     {
         GameScores gameScores = GameManager.Instance.GameScores;
-        Debug.Log(gameScores.planeMaxScore.ToString());
-        // ScoreText.text = $"플라잉 비행기: {gameScores.planeMaxScore}점\n스택 쌓기 : {gameScores.stackMaxScore}점\n몬스터 던전 : 0점\n낚시 : 0점";
+        
+        ScoreText.text = $"플라잉 비행기: {gameScores.planeMaxScore.ToString()}점\n스택 쌓기 : {gameScores.stackMaxScore.ToString()}점";
         ScoreView.SetActive(state);
     }
     

@@ -19,16 +19,12 @@ public class HomeUI : BaseUI
         startButton = transform.Find("StartButton").GetComponent<Button>();
         exitButton = transform.Find("ExitButton").GetComponent<Button>();
         
-        Debug.Log(startButton);
-        Debug.Log(exitButton);
-        
         startButton.onClick.AddListener(OnClickStartButton);
         exitButton.onClick.AddListener(OnClickExitButton);
     }
 
     public void OnClickStartButton()
     {
-        Debug.Log("OnClickStartButton");
         uiManager.OnClickStart();
     }
 

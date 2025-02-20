@@ -87,7 +87,6 @@ public class ConversationUIManager : MonoBehaviour
         // UpdateConversationContent가 실행되는 단계에서 동시에 실행됨
         if (Input.GetMouseButtonUp(0) && ConversationUIManager.Instance._isConversationStarted && _isProceedToNext)
         {
-            Debug.Log("대화중입니다만");
         }
     }
 }

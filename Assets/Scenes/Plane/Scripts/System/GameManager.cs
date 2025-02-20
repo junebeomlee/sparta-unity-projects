@@ -36,17 +36,12 @@ namespace Scene.Plane
         {
             uiManager.ShowResultUI();
 
-            Debug.Log(World.GameManager.Instance);
-            Debug.Log(World.GameManager.Instance.GameScores);
             
             // 최고 기록 저장
             GameScores gameScores = World.GameManager.Instance.GameScores;
-            Debug.Log(gameScores);
-            
             if (gameScores.planeMaxScore < _currentScore)
             {
                 gameScores.planeMaxScore = _currentScore;
-                Debug.Log(World.GameManager.Instance.GameScores.planeMaxScore);
             }
         }
     

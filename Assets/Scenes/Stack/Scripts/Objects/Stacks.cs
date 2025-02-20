@@ -300,6 +300,8 @@ public class TheStack : MonoBehaviour
     
     void UpdateScore()
     {
+      
+        
         if(bestScore < stackCount)
         {
             bestScore = stackCount;

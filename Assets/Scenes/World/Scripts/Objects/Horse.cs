@@ -61,7 +61,6 @@ public class Horse : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Horse out");
             _isPlayerEnter = false;
             // 타겟이 외부에서 처리되면, 탑승과 함께 타겟을 잃는다.
             // _target = null;
