@@ -9236,6 +9236,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562852111706148396, guid: 5e343f1374f0c4dc181b305b0ea7b9db, type: 3}
+      propertyPath: seat
+      value: 
+      objectReference: {fileID: 1086131471}
+    - target: {fileID: 3562852111706148396, guid: 5e343f1374f0c4dc181b305b0ea7b9db, type: 3}
       propertyPath: Sheat
       value: 
       objectReference: {fileID: 1086131471}
