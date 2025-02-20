@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jellyfish5_0: -8516598963024881787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
