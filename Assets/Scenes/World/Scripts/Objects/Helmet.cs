@@ -1,6 +1,5 @@
 using System;
 using Scene.World;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // horse 와 마찬가지로 pivot만 다르며 유사함

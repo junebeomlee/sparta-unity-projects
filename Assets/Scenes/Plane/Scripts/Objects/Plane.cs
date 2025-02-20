@@ -64,7 +64,7 @@ public class Plane : MonoBehaviour
     {
         if(isDead) { return; }
         
-        Vector3 velocity = _rigidbody.linearVelocity;
+        Vector3 velocity = _rigidbody.velocity;
         velocity.x = flapForce;
 
         if (_isFlap)
@@ -73,10 +73,10 @@ public class Plane : MonoBehaviour
             _isFlap = false;
         }
         
-        _rigidbody.linearVelocity = velocity;
+        _rigidbody.velocity = velocity;
         
         // 물리적 방식으로 회전을 구현
-        float angle = Mathf.Clamp(_rigidbody.linearVelocity.y * 10f, -90f, 90f);
+        float angle = Mathf.Clamp(_rigidbody.velocity.y * 10f, -90f, 90f);
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
