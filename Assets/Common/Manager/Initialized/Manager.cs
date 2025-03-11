@@ -5,6 +5,6 @@ public class Manager : MonoBehaviour
 {
     private void Awake()
     {
-        GlobalManager.Register(this);
+        Managers.Register(this);
     }
 }   
