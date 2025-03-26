@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;" />
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="asdf" style="left: 0; right: 0; position: relative; flex-basis: 10%; align-items: center; width: 50%; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; background-color: rgba(255, 255, 255, 0);" />
+</ui:UXML>
