@@ -1,3 +1,5 @@
+블로그 해당 프로젝트 소개 : https://velog.io/@junebeom/TIL0326-3D-%EB%B0%A9%EC%B9%98%ED%98%95-%EA%B2%8C%EC%9E%84-%EA%B2%8C%EC%9E%84-%EC%86%8D-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4%EA%B3%BC-%EA%B8%B8-%EC%B0%BE%EA%B8%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
+
 # 프로젝트 구성
 
 장르 : 방치형 + 턴제  
